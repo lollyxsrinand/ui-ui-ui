@@ -1,12 +1,12 @@
 import React from 'react'
-import Login from '../components/examples/Login'
-import AddAccount from '../components/examples/AddAccount'
+import Login from '../components/bread-examples/card/Login'
+import AddAccount from '../components/bread-examples/card/AddAccount'
 
 const page = () => {
   return (
-    <div className='flex flex-col gap-4 items-center'>
+    <div className='h-full w-full flex flex-col items-center py-4'>
         <Login />
-        <AddAccount /> 
+        <AddAccount />
     </div>
   )
 }

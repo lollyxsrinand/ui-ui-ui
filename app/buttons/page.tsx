@@ -1,52 +1,40 @@
 import React from 'react'
 import {Button, IconButton} from '../components/ui/Button'
-import { Camera, Ghost, MicOff, Smile, Video } from 'lucide-react'
+import { Ghost, MicOff, PiggyBank, Video } from 'lucide-react'
+import Showcase from '../components/Showcase'
 
 const page = () => {
   return (
-    <div className="h-full w-full flex flex-col gap-4 justify-center items-center">
-        <h1 className='text-2xl font-light'>buttons</h1>
-        <div className='flex gap-4'>
-            <Button variant='action'>
-                <div className='flex items-center justify-center gap-2.5'>
-                    <span>action</span>
+    <div className='h-full w-full flex flex-col gap-4'>
+        <Showcase className='gap-4'>
+            <span className='text-2xl font-bold'>buttons</span>
+            <span className='text-2xl font-light'>text buttons</span>
+            <div className='flex gap-2.5'>
+                <Button variant='primary'>primary</Button>
+                <Button variant='secondary'>secondary</Button>
+                <Button variant='ghost-primary'>ghost primary</Button>
+                <Button variant='ghost-secondary'>ghost secondary</Button>
+                <Button variant='muted'>muted</Button>
+            </div>
+            <span className='text-2xl font-light'>icon buttons</span>
+            <div className='flex gap-2.5'>
+                <IconButton variant='primary'>
                     <Video size={16} />
-                </div>
-            </Button>
-
-            <Button variant='regular'>
-                <div className='flex items-center justify-center gap-2.5'>
-                    <span>regular</span>
-                    <Smile size={16} /> 
-                </div>
-            </Button>
-            <Button variant='ghost'>
-                <div className='flex items-center justify-center gap-2.5'>
-                    <span>ghost</span>
+                </IconButton>
+                <IconButton variant='secondary'>
+                    <PiggyBank size={16} />
+                </IconButton>
+                <IconButton variant='ghost-primary'>
                     <Ghost size={16} />
-                </div>
-            </Button>
-            <Button variant='mute'>
-                <div className='flex items-center justify-center gap-2.5'>
-                    <span>mute</span>
-                    <MicOff size={16} />
-                </div>
-            </Button>
-        </div>
-        <div className='flex gap-4'>
-            <IconButton variant='action'>
-                    <Camera size={16} />
-            </IconButton>
-            <IconButton variant='regular'>
-                    <Smile size={16} />
-            </IconButton>
-            <IconButton variant='ghost'>
+                </IconButton>
+                <IconButton variant='ghost-secondary'>
                     <Ghost size={16} />
-            </IconButton>
-            <IconButton variant='mute'>
+                </IconButton>
+                <IconButton variant='muted'>
                     <MicOff size={16} />
-            </IconButton>
-        </div>
+                </IconButton>
+            </div>
+        </Showcase>
     </div>
   )
 }

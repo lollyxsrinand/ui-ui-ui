@@ -1,7 +1,6 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { cn } from '../../lib/cn'
-import { ChevronDown } from 'lucide-react'
 
 interface InputProps {
     placeholder?: string
@@ -9,36 +8,29 @@ interface InputProps {
     onChange?: (value: string) => void
     type?: string
     className?: string
-}
-
-export const Input = ({ placeholder, value, onChange, type, className }: InputProps) => {
-    return (
-        <input
-            type={type}
-            placeholder={placeholder}
-            value={value}
-            onChange={(e) => onChange && onChange(e.target.value)}
-            className={cn(
-                "px-4 py-2 rounded-xl border border-border bg-secondary text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-border/80",
-                className
-            )}
-        />
-    )
+    label?: string
+    size?: 'sm' | 'md' | 'lg'
 }
 
 
-export const Select = ({options, option, setOption }: {options: string[], option: string,  setOption: React.Dispatch<React.SetStateAction<string>>}) => {
-    const [isOpen, setIsOpen] = React.useState(false)
-
+export const Input = ({ placeholder, value, onChange, type, className, label, size='md' }: InputProps) => {
     return (
-        <div 
-        onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-            "px-4 py-2 rounded-xl border border-border bg-secondary focus:outline-none",
-            "flex items-center justify-between cursor-pointer select-none"
-        )}>
-            {option}
-            <ChevronDown size={16} />
+        <div className='flex flex-col gap-1'>
+            {label && <label htmlFor={label}>{label}</label>}
+            <input
+                type={type}
+                name={label}
+                placeholder={placeholder}
+                value={value}
+                onChange={(e) => onChange && onChange(e.target.value)}
+                className={cn(
+                    "bg-input rounded-lg border border-border focus:ring-2 focus:ring-neutral-700 outline-none",
+                    size === 'sm' && "px-2 py-1 text-sm",
+                    size === 'md' && "px-3 py-1.5",
+                    size === 'lg' && "px-4 py-2",
+                    className
+                )}
+            />
         </div>
     )
 }
