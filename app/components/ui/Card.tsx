@@ -1,7 +1,9 @@
 import React from 'react'
 import { cn } from '../../lib/cn'
 
-type CardProps = React.HTMLAttributes<HTMLDivElement>;
+type CardProps = React.HTMLAttributes<HTMLDivElement> & {
+  className?: string
+};
 
 const CardRoot = ({ className, ...props }: CardProps) => (
   <div

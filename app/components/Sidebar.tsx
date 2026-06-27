@@ -12,6 +12,7 @@ const Sidebar = () => {
         <Link href='/cards' className='w-full flex items-center'>cards</Link>
         <Link href='/colors' className='w-full flex items-center'>colors</Link>
         <Link href='/tables' className='w-full flex items-center'>tables</Link>
+        <Link href='/select' className='w-full flex items-center'>select</Link>
     </div>
   )
 }

@@ -16,7 +16,7 @@ const Login = () => {
         <Input  placeholder='email' label='email'/>
         <Input  placeholder='password' label='password'/>
         <Button variant='primary' className='w-full'>login</Button>
-        {/* <Button variant='secondary' className='w-full'> </Button> */}
+        <Button variant='secondary' className='w-full'>or die</Button>
       </Card.Content>
 
     </Card>
