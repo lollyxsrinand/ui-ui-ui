@@ -8,7 +8,7 @@ type CardProps = React.HTMLAttributes<HTMLDivElement> & {
 const CardRoot = ({ className, ...props }: CardProps) => (
   <div
     className={cn(
-      "flex flex-col rounded-2xl bg-card p-8 gap-4 border border-border",
+      "flex flex-col rounded-2xl bg-card px-8 py-6 gap-4 border border-border",
       className
     )}
     {...props}

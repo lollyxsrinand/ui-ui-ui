@@ -1,3 +1,4 @@
+'use client'
 import { cn } from '@/app/lib/cn'
 import React, { createContext, useContext, useEffect } from 'react'
 
@@ -20,6 +21,7 @@ const useSelectContext = () => {
 }
 
 interface SelectProps {
+    label?: string
     value: string
     onValueChange: (value: string) => void
     children: React.ReactNode
@@ -28,7 +30,7 @@ interface SelectProps {
 }
 
 const selectRef = React.createRef<HTMLDivElement>()
-export const Select = ({ value, onValueChange, children, size = 'md', className }: SelectProps) => {
+export const Select = ({ label, value, onValueChange, children, size = 'md', className }: SelectProps) => {
     const [isOpen, setIsOpen] = React.useState(false)
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -48,8 +50,11 @@ export const Select = ({ value, onValueChange, children, size = 'md', className 
     }, [])
     return (
         <SelectContext.Provider value={{ value, onValueChange, isOpen, setIsOpen, size }}>
-            <div ref={selectRef} className={cn(className, "relative")}>
-                {children}
+            <div className='flex flex-col gap-1'>
+                {label && <span>{label}</span>}
+                <div ref={selectRef} className={cn(className, "relative")}>
+                    {children}
+                </div>
             </div>
         </SelectContext.Provider>
     )
@@ -73,10 +78,10 @@ const Trigger = ({ children }: { children: React.ReactNode }) => {
 }
 
 const Content = ({ children }: { children: React.ReactNode }) => {
-    const { isOpen, setIsOpen } = useSelectContext()
+    const { isOpen } = useSelectContext()
     if (!isOpen) return null
     return (
-        <div className="absolute z-50 max-h-42 scrollbar-none overflow-auto mt-1 w-full rounded-lg bg-input p-1 shadow-lg border border-border">
+        <div className="absolute z-50 max-h-56 scrollbar-track-transparent scrollbar-thumb-accent overflow-auto mt-1 w-full rounded-lg bg-input p-1 shadow-lg border border-border">
             {children}
         </div>
     )

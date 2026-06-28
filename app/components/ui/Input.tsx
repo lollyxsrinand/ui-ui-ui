@@ -4,8 +4,8 @@ import { cn } from '../../lib/cn'
 
 interface InputProps {
     placeholder?: string
-    value?: string
-    onChange?: (value: string) => void
+    value?: string | number
+    onChange?: (value: string | number) => void
     type?: string
     className?: string
     label?: string

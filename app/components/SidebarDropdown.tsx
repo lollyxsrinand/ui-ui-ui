@@ -5,7 +5,7 @@ import { IconButton } from './ui/Button'
 const SidebarDropdown = () => {
   return (
     <div className=''>
-        <IconButton variant='ghost' className='absolute border border-border md:hidden'>
+        <IconButton variant='ghost-secondary' className='absolute border border-border md:hidden'>
             <LucideAlignJustify size={16} />
         </IconButton>
     </div>

@@ -32,13 +32,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="h-full bg-background text-foreground flex flex-col">
-        <SidebarDropdown />
-        <div className="flex h-full w-full py-4">
-          <Sidebar />
-          {/* <Spacer /> */}
-          {children}
-          <Spacer />
-        </div>
+        {children}
       </body>
     </html>
   );
